@@ -8,7 +8,7 @@ import soundfile as sf
 from tqdm import tqdm
 from diffusers import DDPMScheduler
 from audioldm_eval import EvaluationHelper
-from models_forzen import build_pretrained_models, DPOMusicAudioDiffusion
+from models import build_pretrained_models, DPOMusicAudioDiffusion
 import numpy as np
 import laion_clap
 from transformers import RobertaModel
