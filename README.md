@@ -4,7 +4,7 @@ Welcome to MusicAlign's GitHub repository! This repository hosts the code, data 
 
 **Abstract**: Text-to-music generation models have made substantial progress in generation quality, yet their outputs often fail to align with human auditory preferences and suffer from melodic instability when conditioned on complex text descriptions. In this work, we propose MusicAlign, a preference alignment framework for text-to-music latent diffusion models. First, we construct MusicPre, a music-theory-aware preference dataset built by generating inferior text descriptions via LLM-driven music-theory perturbations and applying CLAP-based bidirectional filtering to select high-quality preference pairs. Second, building upon existing diffusion-DPO alignment methods, we introduce an IPO-based alignment variant and incorporate an auxiliary SFT loss to mitigate generation quality degradation during preference optimization. We further employ explicit beat and chord encoders to inject musical structural information, preserving controllability and acoustic fidelity throughout alignment. Extensive experiments demonstrate that MusicAlign outperforms text-to-music baselines including Mustango and MusicGen鈥攐n both objective and subjective metrics such as CLAP score, overall musical quality, and text relevance. The IPO variant, in particular, exhibits additional advantages in spectral fidelity and cross-domain generalization.  
 
-![鍥剧墖璇存槑](img\model.png)  
+![](\img\model.png)  
 
 Paper: coming soon
 
