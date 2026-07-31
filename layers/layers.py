@@ -298,7 +298,7 @@ class Beat_Embedding(nn.Module):
 		return beat_emb
 
 if __name__ == "__main__":
-	config_path = "/data/nicolas/TANGO/config/model_embedding_config.yaml"
+	config_path = "/path/to/your/config/TANGO/config/model_embedding_config.yaml"
 	with open (config_path, 'r') as f:
 		cfg = yaml.safe_load(f)
 

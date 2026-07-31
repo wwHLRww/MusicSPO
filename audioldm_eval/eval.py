@@ -387,7 +387,7 @@ if __name__ == "__main__":
         type=str,
         required=False,
         help="Audio sampling rate during evaluation",
-        default="/mnt/fast/datasets/audio/audioset/2million_audioset_wav/balanced_train_segments",
+        default="/path/to/datasets/audio/audioset/2million_audioset_wav/balanced_train_segments",
     )
 
     parser.add_argument(
@@ -396,7 +396,7 @@ if __name__ == "__main__":
         type=str,
         required=False,
         help="Audio sampling rate during evaluation",
-        default="/mnt/fast/datasets/audio/audioset/2million_audioset_wav/eval_segments",
+        default="/path/to/datasets/audio/audioset/2million_audioset_wav/eval_segments",
     )
 
     parser.add_argument(

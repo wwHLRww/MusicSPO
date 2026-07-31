@@ -17,8 +17,8 @@ from safetensors.torch import load_file
 
 def clap_score_computation(wav_output_dir, text_prompts):
     cos_sim = torch.nn.CosineSimilarity()
-    local_roberta_path = "/public/zhoumingtong/Model/huggingface/hub/models--roberta-base"
-    local_clap_ckpt = "/public/zhoumingtong/Music/tango-master/tango2/ckpt/clap/630k-audioset-best.pt"
+    local_roberta_path = "/path/to/your/models/Model/huggingface/hub/models--roberta-base"
+    local_clap_ckpt = "/path/to/your/models/Music/tango-master/tango2/ckpt/clap/630k-audioset-best.pt"
     model = laion_clap.CLAP_Module(enable_fusion=False)
     model.load_ckpt(local_clap_ckpt)
     model.text_branch = RobertaModel.from_pretrained(
@@ -51,13 +51,13 @@ def chunks(lst, n):
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Inference for text to music generation task.")
-    parser.add_argument("--original_args", type=str, default="/public/zhoumingtong/Music/tango-master/tango2/output_/output_sft/summary.jsonl",
+    parser.add_argument("--original_args", type=str, default="/path/to/your/models/Music/tango-master/tango2/output_/output_sft/summary.jsonl",
                         help="Path for summary jsonl file saved during training.")
-    parser.add_argument("--unet_model_config", type=str, default="/public/zhoumingtong/Music/tango-master/tango2/configs/diffusion_model_config_munet.json",  #choose between configs/diffusion_model_config.json for Tango and configs/diffusion_model_config_munet.json for Mustango
+    parser.add_argument("--unet_model_config", type=str, default="/path/to/your/models/Music/tango-master/tango2/configs/diffusion_model_config_munet.json",  #choose between configs/diffusion_model_config.json for Tango and configs/diffusion_model_config_munet.json for Mustango
                         help="unet model config json path")
-    parser.add_argument("--model", type=str, default="/public/zhoumingtong/Music/tango-master/tango2/output_/output_sft/epoch_3",
+    parser.add_argument("--model", type=str, default="/path/to/your/models/Music/tango-master/tango2/output_/output_sft/epoch_3",
                         help="Path for saved model bin file.")
-    parser.add_argument("--test_file", type=str, default="/public/zhoumingtong/Dataset/FMACaps/FMACaps_eval_set/FMACaps_B.json",
+    parser.add_argument("--test_file", type=str, default="/path/to/your/models/Dataset/FMACaps/FMACaps_eval_set/FMACaps_B.json",
                         help="json file containing the test prompts for generation.")
     parser.add_argument("--text_key", type=str, default="main_caption",
                         help="Key containing the text in the json file.")
@@ -162,7 +162,7 @@ def main():
 
 
     # Set up scheduler
-    stable_diffusion_path = "/public/zhoumingtong/Music/pretrained/stable-diffusion-2-1"
+    stable_diffusion_path = "/path/to/your/models/Music/pretrained/stable-diffusion-2-1"
     scheduler = DDPMScheduler.from_pretrained(stable_diffusion_path, subfolder="scheduler")
 
     # Evaluator
@@ -230,7 +230,7 @@ def main():
 
     # Save audio files
     exp_id = str(int(time.time()))
-    output_dir = "/public/zhoumingtong/Music/tango-master/tango2/FMACaps/outputs_SFT/ourputs_SFT".format(
+    output_dir = "/path/to/your/models/Music/tango-master/tango2/FMACaps/outputs_SFT/ourputs_SFT".format(
         exp_id,
         "_".join(args.model.split("/")[1:-1]),
         num_steps,
@@ -275,9 +275,9 @@ def main():
             print(f"{key}: {value}")
 
     # Save results
-    if not os.path.exists("/public/zhoumingtong/Music/tango-master/tango2/FMACaps/outputs_SFT"):
-        os.makedirs("/public/zhoumingtong/Music/tango-master/tango2/FMACaps/outputs_SFT")
-    with open("/public/zhoumingtong/Music/tango-master/tango2/FMACaps/outputs_SFT/summary.jsonl", "a") as f:
+    if not os.path.exists("/path/to/your/models/Music/tango-master/tango2/FMACaps/outputs_SFT"):
+        os.makedirs("/path/to/your/models/Music/tango-master/tango2/FMACaps/outputs_SFT")
+    with open("/path/to/your/models/Music/tango-master/tango2/FMACaps/outputs_SFT/summary.jsonl", "a") as f:
         f.write(json.dumps(result, ensure_ascii=False) + "\n\n")
 
 if __name__ == "__main__":

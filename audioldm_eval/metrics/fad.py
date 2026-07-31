@@ -56,7 +56,7 @@ class FrechetAudioDistance:
             (i) a string which is the directory of a set of audio files, or
             (ii) a np.ndarray of shape (num_samples, sample_length)
         """
-        self.model = torch.hub.load("/public/zhoumingtong/Music/tango-master/tango2/torchvggish",
+        self.model = torch.hub.load("/path/to/your/models/Music/tango-master/tango2/torchvggish",
          "vggish",
          source="local"
          )
