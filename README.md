@@ -17,8 +17,8 @@ jointly affect structural adherence, with gains varying across condition configu
 ## 1 Installation
 
 ```bash
-git clone https://github.com/your-username/MusicAlign.git
-cd MusicAlign
+git clone https://github.com/your-username/MusicSPO.git
+cd MusicSPO
 
 conda create -n music_align python=3.10 -y
 conda activate music_align
@@ -61,7 +61,7 @@ Download datasets and place them under `./dataset`.
 ### Training a Model
 
 ```bash
-bash MusicAlign-train.sh
+bash MusicSPO-train.sh
 ```
 
 ---
@@ -123,18 +123,8 @@ python inference_only.py \
 ---
 ### Dataset *(coming soon)*
 ---
-<!-- ## Citation
 
-If you use this work, please cite:
-
-```bibtex
-@misc{musicalign2026,
-  title={MusicDPO: Direct Preference Optimization for Text-to-Music Generation},
-  author={Your Name},
-  year={2026},
-  note={Coming soon}
-}
-``` -->
+ -->
 <!-- 
 ## License
 
