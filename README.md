@@ -1,20 +1,17 @@
-﻿# MusicAlign: Preference Optimization with Structural Conditioning for Text-to-Music Diffusion
+﻿# MusicSPO: Improving Structural Adherence in Music Generation through Structure-Aware Preference Optimization
+ 
 
-Welcome to MusicAlign's GitHub repository! This repository hosts the code, data and model weight of MusicAlign.
-
-**Abstract**: Text-to-music generation models have made substantial progress in generation quality, yet their outputs often fail to align with human auditory preferences and suffer from melodic instability when conditioned on complex text descriptions. In this work, we propose MusicAlign, a preference alignment framework for text-to-music latent diffusion models. First, we construct MusicPre, a music-theory-aware preference dataset built by generating inferior text descriptions via LLM-driven music-theory perturbations and applying CLAP-based bidirectional filtering to select high-quality preference pairs. Second, building upon existing diffusion-DPO alignment methods, we introduce an IPO-based alignment variant and incorporate an auxiliary SFT loss to mitigate generation quality degradation during preference optimization. We further employ explicit beat and chord encoders to inject musical structural information, preserving controllability and acoustic fidelity throughout alignment. Extensive experiments demonstrate that MusicAlign outperforms text-to-music baselines including Mustango and MusicGen鈥攐n both objective and subjective metrics such as CLAP score, overall musical quality, and text relevance. The IPO variant, in particular, exhibits additional advantages in spectral fidelity and cross-domain generalization.  
+**Abstract**: Existing music generation models can accept conditions such as beats and chords, yet accurately following specified rhythmic and harmonic targets 
+remains challenging. We propose MusicSPO, a framework that improves musical structural adherence through structure-aware preference optimization. 
+MusicSPO constructs preference data through large language model-driven musical-structure caption perturbation, providing pairwise supervision for comparing
+candidate music under shared structural conditions. By jointly optimizing a generative objective on preferred music samples and a pairwise preference 
+objective, the framework further improves the model’s ability to follow existing structural conditions. Experimental results show that MusicSPO 
+improves beat matching and tonal similarity over the pretrained Mustango baseline, while achieving higher subjective ratings for music quality and text–music 
+relevance. Controlled comparisons across structural conditions and training methods further show that structural inputs and preference supervision 
+jointly affect structural adherence, with gains varying across condition configurations.
 
 ![](/img/model.png)  
 
-Paper: coming soon
-
-<!-- ### Key Features
-
-- **DPO / IPO Training** 锟?Align a frozen Mustango diffusion model using human preference pairs (chosen vs. rejected)
-- **Beat & Chord Conditioning** 锟?Encode beat timestamps/types and chord progressions as auxiliary inputs to the UNet
-- **Frozen Encoders** 锟?Text encoder, beat encoder, chord encoder, and VAE are all frozen during training; only the UNet is optimized
-- **SFT Warmup** 锟?Optional supervised fine-tuning phase before preference optimization
-- **Adaptive Beta** 锟?Dynamic DPO beta scheduling to stabilize training
 
 --- -->
 ## 1 Installation
