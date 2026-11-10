@@ -10,7 +10,7 @@ improves beat matching and tonal similarity over the pretrained Mustango baselin
 relevance. Controlled comparisons across structural conditions and training methods further show that structural inputs and preference supervision 
 jointly affect structural adherence, with gains varying across condition configurations.
 
-![](/img/model-17.pdf)  
+![](/img/model.png)  
 
 
 --- -->
