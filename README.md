@@ -10,7 +10,7 @@ improves beat matching and tonal similarity over the pretrained Mustango baselin
 relevance. Controlled comparisons across structural conditions and training methods further show that structural inputs and preference supervision 
 jointly affect structural adherence, with gains varying across condition configurations.
 
-![](/img/model.png)  
+![](/img/model-17/pdf)  
 
 
 --- -->
@@ -53,7 +53,6 @@ Download datasets and place them under `./dataset`.
 | `--align_type` | `dpo` | Alignment method: `dpo` or `ipo` |
 | `--dpo_beta` | `0.5` | DPO temperature coefficient |
 | `--eta_ipo` | `0.5` | IPO eta parameter |
-| `--zeta` | `0.5` | Weight of Alignment loss |
 | `--sft_first_epochs` | `1` | Number of SFT-only warmup epochs |
 | `--d_fme` | `1024` | Fourier Music Encoder dimension |
 | `--d_pe` | `1024` | Positional encoding dimension |
